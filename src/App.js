@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, createSearchParams } from "react-router-dom
 import { NavBar } from "./components/navbar"
 import { Products } from "./pages/products"
 import { Product } from "./pages/product"
+import { Data } from "./pages/product/data"
 import { Cart } from "./pages/cart"
 import { NotFound } from "./pages/not-found"
 

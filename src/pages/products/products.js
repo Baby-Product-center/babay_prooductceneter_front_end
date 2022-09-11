@@ -16,13 +16,25 @@ const Products = () => {
 
     const searchQuery = query.get('q');
 
-    axios.get('http://localhost:8080/products/getAll')
-        .then(function (response) {
-            // handle success
-            console.log(response);
-        })
-    console.log("hi")
+    // axios.get('http://localhost:8080/products/getAll')
+    //     .then(function (response) {
+    //         // handle success
+    //         console.log(response);
+    //     })
+    // console.log("hi")
     //console.log();
+
+    // const [quotes, setQuotes] = useState("");
+    //
+    // useEffect(() => {
+    //
+    //         axios.get("http://localhost:8080/products/getAll").then((response) => {
+    //             setQuotes(response.data);
+    //             console.log("dataaaaaaaaaaaaa")
+    //             console.log(response.data)
+    //         });
+    //     console.log("dataaaaaaaaaaaaa1")
+    // }, [quotes]);
 
     useEffect(() => {
         const fetchProducts = async () => {
