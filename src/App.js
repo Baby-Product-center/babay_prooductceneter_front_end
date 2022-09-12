@@ -9,6 +9,13 @@ import { NotFound } from "./pages/not-found"
 
 import { useCart } from './context/cart'
 
+// import  {LandingPage} from './components/pages/LandingPage'
+import {SignInPage} from './components/pages/LoginPage'
+import {LandingPage} from "./components/pages/LandingPage";
+import {SignUpPage} from './components/pages/RegisterPage'
+import {ForgetPasswordPage} from './components/pages/ForgetPasswordPage'
+import {HomePage} from './components/pages/HomePage'
+
 function App() {
 
   const navigate = useNavigate();
@@ -22,10 +29,19 @@ function App() {
     <>
       <NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />
       <Routes>
-        <Route path="/" element={<Products />} />
+        {/*<Route path="/" element={<Products />} />*/}
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+
+        <Route exact path="/" component={ LandingPage } />
+        <Route path="/login" element={ <SignInPage/> } />
+        <Route path="/register" element={ <SignUpPage/> } />
+        <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
+        <Route path="/home" element={ <HomePage/> } />
+
         <Route path="*" element={<NotFound />} />
+
+
       </Routes>
     </>
   );
