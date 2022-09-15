@@ -32,6 +32,20 @@ p {
     text-transform: capitalize;
     border-radius: 3px;
 }
+.primary-button-notFound {
+    /*margin-top: 5rem;*/
+    margin-right: 1rem;
+    padding: .3rem;
+    width: 7rem;
+    background: #8c7ae6;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: all .5s;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 3px;
+}
 .LandinContent{
     /*background: red;*/
     width: 50vw;
