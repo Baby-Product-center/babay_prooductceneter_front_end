@@ -9,7 +9,7 @@ const SignInPage = () =>{
     return (
         <div className="text-center m-5-auto">
             <h2>Sign in to us</h2>
-            <form action="/home">
+            <form action="/products">
                 <p>
                     <label>Username or email address</label><br/>
                     <input type="text" name="first_name" required />
@@ -25,7 +25,7 @@ const SignInPage = () =>{
                 </p>
             </form>
             <footer>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
+                <p>First timee? <Link to="/register">Create an account</Link>.</p>
                 <p><Link to="/">Back to Homepage</Link>.</p>
             </footer>
         </div>

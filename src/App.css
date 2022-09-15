@@ -9,6 +9,10 @@
 body {
     margin: 0 auto
 }
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
 
 .m-5-auto {
     margin: 5rem auto
@@ -19,13 +23,18 @@ body {
     margin-right: 1rem;
     padding: .6rem;
     width: 10rem;
-    background: #222;
+    background: #8c7ae6;
     border: none;
     color: #fff;
     font-size: 1.2rem;
     transition: all .5s;
     cursor: pointer;
-    text-transform: capitalize
+    text-transform: capitalize;
+    border-radius: 3px;
+}
+.LandinContent{
+    /*background: red;*/
+    width: 50vw;
 }
 
 /***    Landing Page     ***/
@@ -35,15 +44,15 @@ body {
 }
 
 .main-title {
-    padding-top: 10rem;
-    font-size: 5rem;
+    padding-top: 15rem;
+    font-size: 3rem;
     font-family: 'Fascinate', cursive;
     text-transform: uppercase
 }
-
 .main-para {
-    font-size: 2.5rem;
-    text-Transform: capitalize
+    font-size: 2rem;
+    text-Transform: capitalize;
+    margin-top: 4rem;
 }
 
 #reg_btn span {
@@ -140,4 +149,15 @@ form span {
 /***    Home Page     ***/
 .home-page-title {
     color: #222
+}
+#text-center{
+    textAlign:"center"
+}
+.main-para {
+    font-size: 2.5rem;
+    text-Transform: capitalize;
+}
+
+.text-center {
+    text-align: center!important;
 }
