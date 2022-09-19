@@ -28,18 +28,18 @@ function App() {
 
   return (
     <>
-      {/*<NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />*/}
+      <NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />
       {/*Icommit this part bcz of it will apper in every page find a solution for that*/}
       <Routes>
-        <Route path="/products" element={<Products />} />
+        <Route path="/" element={<Products />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
 
-        <Route path="/" element={ <LandingPage/> } />
-        <Route path="/login" element={ <SignInPage/> } />
-        <Route path="/register" element={ <SignUpPage/> } />
-        <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
-        <Route path="/home" element={ <HomePage/> } />
+        {/*<Route path="/" element={ <LandingPage/> } />*/}
+        {/*<Route path="/login" element={ <SignInPage/> } />*/}
+        {/*<Route path="/register" element={ <SignUpPage/> } />*/}
+        {/*<Route path="/forget-password" element={ <ForgetPasswordPage/> } />*/}
+        {/*<Route path="/home" element={ <HomePage/> } />*/}
 
         <Route path="*" element={<NotFound />} />
 
