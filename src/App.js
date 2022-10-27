@@ -18,6 +18,7 @@ import {HomePage} from './components/pages/HomePage'
 import './App.css'
 import {OrderPage} from "./components/pages/OrdersPage";
 import {DeliveredOrderpage} from "./components/pages/preOrdersPage";
+import {EditProductPage} from "./components/pages/ProductDetails";
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/home" element={ <HomePage/> } />
         <Route path="/order" element={ <OrderPage/> } />
         <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
+        <Route path="/EditProductPage" element={ <EditProductPage/> } />
 
         <Route path="*" element={<NotFound />} />
 
