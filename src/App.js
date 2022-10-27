@@ -17,6 +17,7 @@ import {ForgetPasswordPage} from './components/pages/ForgetPasswordPage'
 import {HomePage} from './components/pages/HomePage'
 import './App.css'
 import {OrderPage} from "./components/pages/OrdersPage";
+import {DeliveredOrderpage} from "./components/pages/preOrdersPage";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
         <Route path="/home" element={ <HomePage/> } />
         <Route path="/order" element={ <OrderPage/> } />
+        <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
 
         <Route path="*" element={<NotFound />} />
 
