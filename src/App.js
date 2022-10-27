@@ -16,6 +16,7 @@ import {SignUpPage} from './components/pages/RegisterPage'
 import {ForgetPasswordPage} from './components/pages/ForgetPasswordPage'
 import {HomePage} from './components/pages/HomePage'
 import './App.css'
+import {OrderPage} from "./components/pages/OrdersPage";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/register" element={ <SignUpPage/> } />
         <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
         <Route path="/home" element={ <HomePage/> } />
+        <Route path="/order" element={ <OrderPage/> } />
 
         <Route path="*" element={<NotFound />} />
 
