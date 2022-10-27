@@ -43,8 +43,11 @@ function App() {
         <Route path="/register" element={ <SignUpPage/> } />
         <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
         <Route path="/home" element={ <HomePage/> } />
+        {/*//not deliverd orders*/}
         <Route path="/order" element={ <OrderPage/> } />
+        {/*Deliverd orders*/}
         <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
+        {/*To edit product details*/}
         <Route path="/EditProductPage" element={ <EditProductPage/> } />
 
         <Route path="*" element={<NotFound />} />
