@@ -9,7 +9,7 @@ import { NotFound } from "./pages/not-found"
 
 import { useCart } from './context/cart'
 
-// import  {LandingPage} from './components/pages/LandingPage'
+//import  {LandingPage} from './components/pages/LandingPage'
 import {SignInPage} from './components/pages/LoginPage'
 import {LandingPage} from "./components/pages/LandingPage";
 import {SignUpPage} from './components/pages/RegisterPage'
@@ -35,11 +35,11 @@ function App() {
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
 
-        {/*<Route path="/" element={ <LandingPage/> } />*/}
-        {/*<Route path="/login" element={ <SignInPage/> } />*/}
-        {/*<Route path="/register" element={ <SignUpPage/> } />*/}
-        {/*<Route path="/forget-password" element={ <ForgetPasswordPage/> } />*/}
-        {/*<Route path="/home" element={ <HomePage/> } />*/}
+        <Route path="/landing" element={ <LandingPage/> } />
+        <Route path="/login" element={ <SignInPage/> } />
+        <Route path="/register" element={ <SignUpPage/> } />
+        <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
+        <Route path="/home" element={ <HomePage/> } />
 
         <Route path="*" element={<NotFound />} />
 

@@ -3,6 +3,8 @@ import { FakeStoreApi } from '../../services/fake-store-api'
 import { useSearchParams } from "react-router-dom"
 import { Item } from "../../components/item"
 import { useCart } from "../../context/cart"
+import UserService from "../../services/user.service";
+
 
 const axios = require('axios');
 
@@ -12,6 +14,26 @@ const Products = () => {
     const [query] = useSearchParams();
     const { addToCart } = useCart()
     const[students,setStudents]=useState([])
+    const [content, setContent] = useState("");
+
+    useEffect(() => {
+        UserService.getProductList().then(
+            (response) => {
+                setContent(response.data);
+            },
+            (error) => {
+                const _content =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+
+                setContent(_content);
+            }
+        );
+    }, []);
+    console.log(content)
 
 
     const searchQuery = query.get('q');
@@ -22,8 +44,8 @@ const Products = () => {
     //         console.log(response);
     //     })
     // console.log("hi")
-    //console.log();
-
+    // console.log();
+    //
     // const [quotes, setQuotes] = useState("");
     //
     // useEffect(() => {
