@@ -19,6 +19,7 @@ import './App.css'
 import {OrderPage} from "./components/pages/OrdersPage";
 import {DeliveredOrderpage} from "./components/pages/preOrdersPage";
 import {EditProductPage} from "./components/pages/ProductDetails";
+import AddProductDetails from "./components/pages/AddProduct";
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      <NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />
+      {/*<NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />*/}
       {/*Icommit this part bcz of it will apper in every page find a solution for that*/}
       <Routes>
         <Route path="/" element={<Products />} />
@@ -49,6 +50,7 @@ function App() {
         <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
         {/*To edit product details*/}
         <Route path="/EditProductPage" element={ <EditProductPage/> } />
+        <Route path="/AddProductPage" element={ <AddProductDetails/> } />
 
         <Route path="*" element={<NotFound />} />
 
