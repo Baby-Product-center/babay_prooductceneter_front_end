@@ -19,7 +19,8 @@ const Products = () => {
     useEffect(() => {
         UserService.getProductList().then(
             (response) => {
-                setContent(response.data);
+                setProducts(response.data);
+                setLoading(false)
             },
             (error) => {
                 const _content =
@@ -29,11 +30,10 @@ const Products = () => {
                     error.message ||
                     error.toString();
 
-                setContent(_content);
+                setContent(content);
             }
         );
     }, []);
-    console.log(content)
 
 
     const searchQuery = query.get('q');
@@ -58,16 +58,16 @@ const Products = () => {
     //     console.log("dataaaaaaaaaaaaa1")
     // }, [quotes]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            setLoading(true);
-            const products = searchQuery ? await FakeStoreApi.fetchProductsBySearchQuery(searchQuery) : await FakeStoreApi.fetchAllProducts();
-            setProducts(products);
-            setLoading(false)
-        }
-        fetchProducts().catch(console.error)
-    }, [searchQuery])
-
+    // useEffect(() => {
+    //     const fetchProducts = async () => {
+    //         setLoading(true);
+    //         const products = searchQuery ? await FakeStoreApi.fetchProductsBySearchQuery(searchQuery) : await FakeStoreApi.fetchAllProducts();
+    //         setProducts(products);
+    //         setLoading(false)
+    //     }
+    //     fetchProducts().catch(console.error)
+    // }, [searchQuery])
+    //
     if (!loading && searchQuery && !products.length) {
         return (
             <div className="container">
@@ -83,11 +83,14 @@ const Products = () => {
             <div className="container">
                 <div className="products my-5">
                     <div className="grid">
-                        {loading ? (
-                            <div className="loader" />
-                        ) : (
+                        {
+                            loading ? (
+                            <div>kkkkkkkkkkkkkk</div>
+                        ) :
+                                (
                             products.map((product) => (
-                                <Item key={product.id} data={product} addToCart={() => addToCart(product)} />
+
+                                <Item key={product.product_id} data={product} addToCart={() => addToCart(product)} />
                             ))
                         )}
                     </div>
