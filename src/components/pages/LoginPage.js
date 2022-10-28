@@ -36,7 +36,12 @@ const SignInPage = () =>{
 
             AuthService.login(username, password).then(
                 () => {
-                    navigate("/");
+                    if(JSON.parse(localStorage.getItem("idd"))!=3){
+                        navigate("/AddProductPage")
+                    }else {
+                        navigate("/");
+                    }
+
                     window.location.reload();
                 },
                 (error) => {

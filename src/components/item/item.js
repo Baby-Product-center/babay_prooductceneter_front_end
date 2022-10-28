@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom"
 
 const Item = ({ data, addToCart }) => {
-console.log("data",data)
+
     const { product_id, image,price,product_Name } = data
-    console.log(product_id)
-    console.log(product_Name)
 
     return (
         <div className="card">
