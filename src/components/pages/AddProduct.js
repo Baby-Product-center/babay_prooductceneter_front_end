@@ -40,7 +40,8 @@ const AddProductDetails = () => {
         setState({ ...state, [event.target.name]: event.target.value });
     };
     const handleSelectedFile = (event) => {
-        document.getElementById("fileInput").innerHTML='Done';
+
+        document.getElementById("fileInput").innerHTML='✓';
         document.getElementById("fileInput").style.color='#2edb8a';
     };
 
@@ -75,7 +76,13 @@ const AddProductDetails = () => {
     };
     let iconDiv={
         color:"#82b9d1",
-        cursor:"pointer"
+        cursor:"pointer",
+        display:"block"
+    };
+    let iconDiv2={
+        color:"#82b9d1",
+        cursor:"pointer",
+        display:"none"
     };
 
     return (
@@ -93,8 +100,13 @@ const AddProductDetails = () => {
                                 component="label"
                                 style={iconDiv}
                             >
-                                <Icon ><AddAPhotoIcon style={{}} /></Icon>
-                                {/*add_a_photo*/}
+                                <div id={"test"}>
+
+                                </div>
+                                <div id="addItem" >
+                                    <Icon  id={"img1"}><AddAPhotoIcon /></Icon>
+                                </div>
+
 
                                 <input
 
@@ -105,12 +117,8 @@ const AddProductDetails = () => {
                                 />
                             </Icon>
 
+
                         </div>
-
-
-
-
-
 
                         <TextField
                             type="text"
