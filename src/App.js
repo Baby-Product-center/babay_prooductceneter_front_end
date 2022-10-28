@@ -32,7 +32,7 @@ function App() {
 
   return (
       <>
-        {/*<NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />*/}
+        <NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />
         {/*Icommit this part bcz of it will apper in every page find a solution for that*/}
         <Routes>
           <Route path="/" element={<Products />} />
