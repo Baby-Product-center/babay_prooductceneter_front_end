@@ -23,7 +23,7 @@ const Cart = () => {
 
 
     const publishableKey =
-        'pk_test_51Ljf4AE1EkTP9ZgvBpMHT7esLYu2iLlRYFbQ3KoAz6X01uyey2rsmAaIbVgdeA9cbTUUUKmtpKfQBvq0IL1ji9vS00PKAZ8UkA';
+        'pk_test_51LgXJdSDmFBknNFOqB2kq2HzScVWiF4IKKH8fNHQDPLbhwQbhgvfPCibmDR8tH0YlkZuZAkzb0wnboLGVIdPAOg600hRJpjBTp';
     const [product, setProduct] = useState({
         name: 'Headphone',
         price: 15,
@@ -44,7 +44,11 @@ const Cart = () => {
             time: 4000,
         });
     };
+    const checked = () => {
+       alert("clicke")
+    };
     const payNow = async token => {
+        console.log(token)
         try {
             const response = await axios({
                 url: 'http://localhost:5000/payment',
@@ -55,17 +59,16 @@ const Cart = () => {
                 },
             });
             if (response.status === 200) {
-                //dat send here
                 handleSuccess();
             }
         } catch (error) {
             handleFailure();
             console.log(error);
         }
+
     };
 
-
-
+console.log("c",cart)
     return (
         <div className="cartWrapper">
             <div className="container">
@@ -74,15 +77,15 @@ const Cart = () => {
                         <div className="cartItem p-3">
                             <h2>Order Summary</h2>
                             {cart.map((item) => (
-                                <div className="item" key={item.product.id}>
+                                <div className="item" key={item.product.product_id}>
                                     <div className="grid py-3">
                                         <div className="itemImage">
                                             <img src={item.product.image} alt="" />
                                         </div>
                                         <div className="itemDesc">
                                             <div className="title">
-                                                <Link to={"/product/" + item.product.id} className="titleLink">
-                                                    {item.product.title}
+                                                <Link to={"/product/" + item.product.product_id} className="titleLink">
+                                                    {item.product.product_Name}
                                                 </Link>
                                             </div>
                                             <span className="price">${round(item.product.price * item.quantity, 2)}</span>
@@ -91,14 +94,14 @@ const Cart = () => {
                                         <div className="itemControl flex">
                                             <div>
                                                 <button
-                                                    onClick={() => increaseQuantity(item.product.id)}
+                                                    onClick={() => increaseQuantity(item.product.product_id)}
                                                     className="addQty"
                                                 >
                                                     +
                                                 </button>
                                                 <span className="mx-1">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => decreaseQuantity(item.product.id)}
+                                                    onClick={() => decreaseQuantity(item.product.product_id)}
                                                     disabled={item.quantity === 1}
                                                     className="removeQty"
                                                 >
@@ -106,7 +109,7 @@ const Cart = () => {
                                                 </button>
                                                 <div
                                                     className="remove my-1"
-                                                    onClick={() => removeFromCart(item.product.id)}
+                                                    onClick={() => removeFromCart(item.product.product_id)}
                                                 >
                                                     Remove
                                                 </div>

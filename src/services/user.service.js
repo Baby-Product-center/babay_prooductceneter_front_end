@@ -3,6 +3,7 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/test/";
 const API_URL_USER = "http://localhost:8080/products/getall";
+const API_ADD_ORDER = "http://localhost:8080/products/getall";
 
 
 const getPublicContent = () => {

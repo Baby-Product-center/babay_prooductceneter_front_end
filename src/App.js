@@ -31,32 +31,33 @@ function App() {
   }
 
   return (
-    <>
-      {/*<NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />*/}
-      {/*Icommit this part bcz of it will apper in every page find a solution for that*/}
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
+      <>
+        <NavBar onSearch={onSearch} cartItemCount={cartItemCount()} />
+        {/*Icommit this part bcz of it will apper in every page find a solution for that*/}
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
 
-        <Route path="/landing" element={ <LandingPage/> } />
-        <Route path="/login" element={ <SignInPage/> } />
-        <Route path="/register" element={ <SignUpPage/> } />
-        <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
-        <Route path="/home" element={ <HomePage/> } />
-        {/*//not deliverd orders*/}
-        <Route path="/order" element={ <OrderPage/> } />
-        {/*Deliverd orders*/}
-        <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
-        {/*To edit product details*/}
-        <Route path="/EditProductPage" element={ <EditProductPage/> } />
-        <Route path="/AddProductPage" element={ <AddProductDetails/> } />
+          <Route path="/landing" element={ <LandingPage/> } />
+          <Route path="/login" element={ <SignInPage/> } />
+          <Route path="/register" element={ <SignUpPage/> } />
+          <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
+          <Route path="/home" element={ <HomePage/> } />
+          {/*//not deliverd orders*/}
+          <Route path="/order" element={ <OrderPage/> } />
+          {/*Deliverd orders*/}
+          <Route path="/previous_order" element={ <DeliveredOrderpage/> } />
+          {/*To edit product details*/}
+          <Route path="/EditProductPage" element={ <EditProductPage/> } />
+          <Route path="/AddProductPage" element={ <AddProductDetails/> } />
 
-        <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
 
 
-      </Routes>
-    </>
+        </Routes>
+      </>
+
   );
 }
 
