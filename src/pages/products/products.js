@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 import { FakeStoreApi } from '../../services/fake-store-api'
-import { useSearchParams } from "react-router-dom"
+import {createSearchParams, useNavigate, useSearchParams} from "react-router-dom"
 import { Item } from "../../components/item"
 import { useCart } from "../../context/cart"
 import UserService from "../../services/user.service";
+import {NavBar} from "../../components/navbar";
+import TextField from "@mui/material/TextField";
 
 
 const axios = require('axios');
 
 const Products = () => {
+
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
+    const [oneproducts, setOneProducts] = useState([]);
     const [query] = useSearchParams();
     const { addToCart } = useCart()
     const[students,setStudents]=useState([])
@@ -20,6 +24,7 @@ const Products = () => {
         UserService.getProductList().then(
             (response) => {
                 setProducts(response.data);
+                setOneProducts(response.data)
                 setLoading(false)
             },
             (error) => {
@@ -34,7 +39,12 @@ const Products = () => {
             }
         );
     }, []);
+    const navigate = useNavigate();
+    const { cartItemCount } = useCart()
 
+    const onSearch = (searchQuery) => {
+        navigate(`/?${createSearchParams({ q: searchQuery })}`)
+    }
 
     const searchQuery = query.get('q');
 
@@ -68,6 +78,13 @@ const Products = () => {
     //     fetchProducts().catch(console.error)
     // }, [searchQuery])
     //
+    const filterCards = event => {
+        const value = event.target.value.toLowerCase();
+        console.log(value)
+        const filteredUsers = products.filter(user => (`${user.product_Name} ${user.product_Name}`.toLowerCase().includes(value)));
+        setOneProducts(filteredUsers);
+        console.log("one products",filteredUsers)
+    }
     if (!loading && searchQuery && !products.length) {
         return (
             <div className="container">
@@ -80,6 +97,17 @@ const Products = () => {
 
     return (
         <>
+            <NavBar onSearch={filterCards} cartItemCount={cartItemCount()} />
+          <div style={{marginTop:'20px',marginLeft:'200px'}}>
+              <TextField
+                         id="standard-search"
+                         label="Search Products"
+                         type="search"
+                         onInput={filterCards}
+                         variant="standard"
+                         style={{width:'35%',marginRight:'70px'}}
+              />
+          </div>
             <div className="container">
                 <div className="products my-5">
                     <div className="grid">
@@ -88,7 +116,7 @@ const Products = () => {
                             <div>kkkkkkkkkkkkkk</div>
                         ) :
                                 (
-                            products.map((product) => (
+                                    oneproducts.map((product) => (
 
                                 <Item key={product.product_id} data={product} addToCart={() => addToCart(product)} />
                             ))
