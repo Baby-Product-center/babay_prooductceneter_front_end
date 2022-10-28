@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
 
 const Item = ({ data, addToCart }) => {
-
-    const { id, image, title, price } = data
+console.log("data",data)
+    const { product_id, image,price,product_Name } = data
+    console.log(product_id)
+    console.log(product_Name)
 
     return (
         <div className="card">
@@ -11,8 +13,8 @@ const Item = ({ data, addToCart }) => {
                     <img src={image} alt="" />
                 </div>
                 <div className="title">
-                    <Link to={`/product/${id}`} className="link titleLink">
-                        {title}
+                    <Link to={`/product/${product_id}`} className="link titleLink">
+                        {product_Name}
                     </Link>
                 </div>
                 <div className="flex">
